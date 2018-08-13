@@ -5,9 +5,14 @@ from django.contrib.auth.models import User
 class Category(models.Model):
     title = models.CharField(max_length=64)
 
+    def __str__(self):
+        return self.title
 
 class Status(models.Model):
     title = models.CharField(max_length=64)
+
+    def __str__(self):
+        return self.title
 
 
 class Issue(models.Model):
@@ -38,3 +43,7 @@ class Issue(models.Model):
         )
     created_at = models.DateTimeField(auto_now_add=True, null=False)
     updated_at = models.DateTimeField(auto_now=True)
+
+
+    def __str__(self):
+        return self.title
