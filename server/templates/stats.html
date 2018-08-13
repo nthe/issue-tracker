@@ -1,5 +1,48 @@
 {% extends "admin/change_list.html" %}
-{% block result_list %}
-    {{ metrics }}
+{% block extrastyle %}
+    {{ block.super }}
+    <style>
+        .stats-wrapper {
+            display: flex;  
+            margin: 0 auto 12px auto;
+            justify-content: space-evenly;
+            width: 700px;
+            min-width: 400px;
+            height: 64px;
+            flex-direction: row;
+            align-items: center;
+        }
+        .metric {
+            text-align: center; 
+            font-size: 2.2em;
+        }
+        .metric-label {
+            text-align: center;
+        }
+    </style>
+{% endblock %}
+{% block object-tools %}
+    <span class="stats-wrapper">
+        <span>
+            <div class="metric">{{ metrics.closed }}</div>
+            <div class="metric-label">closed</div>
+        </span>
+        <span>
+            <div class="metric">{{ metrics.total }}</div>
+            <div class="metric-label">total</div>
+        </span>    
+        <span>
+            <div class="metric">{{ metrics.minimum.hours }}:{{ metrics.minimum.seconds }}</div>
+            <div class="metric-label">minimum</div>
+        </span>
+        <span>
+            <div class="metric">{{ metrics.average.hours }}:{{ metrics.average.seconds }}</div>
+            <div class="metric-label">average</div>
+        </span>
+        <span>
+            <div class="metric">{{ metrics.maximum.hours }}:{{ metrics.maximum.seconds }}</div>
+            <div class="metric-label">maximum</div>
+        </span>
+    </span>
     {{ block.super }}
 {% endblock %}
