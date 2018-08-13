@@ -36,5 +36,5 @@ class Issue(models.Model):
         null=True,
         related_name="assignee"
         )
-    created_at = models.DateTimeField(auto_now_add=True)
+    created_at = models.DateTimeField(auto_now_add=True, null=False)
     updated_at = models.DateTimeField(auto_now=True)
