@@ -5,11 +5,20 @@ from django.contrib.auth.models import User
 class Category(models.Model):
     title = models.CharField(max_length=64)
 
+    class Meta:
+        verbose_name = 'Category'
+        verbose_name_plural = 'Categories'
+
     def __str__(self):
         return self.title
 
+
 class Status(models.Model):
     title = models.CharField(max_length=64)
+
+    class Meta:
+        verbose_name = 'Status'
+        verbose_name_plural = 'Statuses'
 
     def __str__(self):
         return self.title
@@ -44,6 +53,9 @@ class Issue(models.Model):
     created_at = models.DateTimeField(auto_now_add=True, null=False)
     updated_at = models.DateTimeField(auto_now=True)
 
+    class Meta:
+        verbose_name = 'Issue'
+        verbose_name_plural = 'Issues'
 
     def __str__(self):
         return self.title

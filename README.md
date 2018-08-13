@@ -18,10 +18,15 @@ Navrhnout a implementovat v Djangu jednoduchý issue tracker:‎
 - musí být jasné, jak projet nainstalovat a spustit‎
 ```
 
+### References
+ + [Official Django REST framework documentation](http://www.django-rest-framework.org/)
+ + [Official django documentation](https://docs.djangoproject.com/en/2.1/ref/contrib/admin/)
+ + [Custom admin-site views (Medium article)](https://medium.com/@hakibenita/how-to-turn-django-admin-into-a-lightweight-dashboard-a0e0bbf609ad)
+
+
 ## Installation / Setup
 
-### Back-end (server)
-**Note**: Make sure your located in the root of project (there's `client` and `server` folder at your current level). This guide assumes that you have `pip` and `virtualenv` installed and that you're using `*nix` system.
+**Note**: Make sure your located in the root of project (there's `server` folder at your current level). This guide assumes that you have `pip` and `virtualenv` installed and that you're using `*nix` system.
 
 ```python
 # prepare virtual environment
@@ -36,30 +41,17 @@ cd server
 # install dependencies
 pip install -r requirement
 
-# migrate database
+# migrate database (create tables, etc...)
 python manage.py migrate
 
 # load prepared data into database
+# TODO: There's django-command that does exactly same thing
 python ./load_fixtures.py
 
 # serve backend
 python manage.py runserver
 ```
 
-
-### Front-end (client)
-**Note**: Make sure your located in the root of project (there's `client` and `server` folder at your current level).
-
-```python
-# navigate to client app folder
-cd client
-
-# install dependencies
-npm install
-
-# start and serve client app
-npm start
-```
 
 ## Notes
 
@@ -74,3 +66,6 @@ npm start
 
 ### Serializers
  - I'm not big fan of `rest_frameworks`'s serializers. It takes too much code to optimize queries in case of "deep" relations - might use experimental `serpy` module, which can be easily rewritten to work similar to `ModelSerializer`.
+
+### Roles / groups
+ - I created two groups - `SuperUser` and `Staff` - and gave them specific model-permissions. Pretty simple and works nicely with admin-site.
