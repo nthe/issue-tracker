@@ -62,3 +62,7 @@ class IssueAdmin(admin.ModelAdmin):
 admin.site.register(models.Issue, IssueAdmin)
 admin.site.register(models.Status)
 admin.site.register(models.Category)
+
+admin.site.site_header = "Issue Tracker"
+admin.site.site_title = "Issue Tracker Portal"
+admin.site.index_title = "Welcome to Issue Tracker Portal"
