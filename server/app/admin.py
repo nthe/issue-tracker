@@ -17,6 +17,7 @@ class IssueAdmin(admin.ModelAdmin):
 
     empty_value_display = 'N/A'
     list_display = ['title', 'status', 'category', 'owner', 'assignee', 'created_at', 'updated_at']
+    list_select_related = ['status', 'category', 'owner', 'assignee']
     list_editable = ['status', 'category', 'assignee']
     list_filter = ['status', 'category', 'owner', 'assignee']
     search_fields = ['title', 'description']
