@@ -35,11 +35,12 @@ virtualenv venv -p python3.6
 # activate virtual environment
 source ./venv/bin/activate
 
-# navigate to server app folder
-cd server
 
 # install dependencies
 pip install -r requirement
+
+# navigate to server app folder
+cd server
 
 # migrate database (create tables, etc...)
 python manage.py migrate
