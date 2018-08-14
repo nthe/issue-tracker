@@ -15,7 +15,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.views.generic.base import RedirectView
 
 urlpatterns = [
-    path('', admin.site.urls),
+    path('', RedirectView.as_view(url='/admin/app/issue', permanent=False), name='issue_tracker'),
+    path('admin/', admin.site.urls),
 ]
