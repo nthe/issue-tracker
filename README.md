@@ -22,7 +22,7 @@ virtualenv venv -p python3.6
 source ./venv/bin/activate
 
 # install dependencies
-pip install -r requirement
+pip install -r requirements.txt
 
 # navigate to server app folder
 cd server
