@@ -36,3 +36,15 @@ python manage.py loaddata fixture.json
 # serve backend
 python manage.py runserver
 ```
+
+## Example users
+
+Feel free to use already existing users to test the page (name/password):
+ 
+ - `SuperUser` role: 
+    - `username`: Peter
+    - `password`: Start123#
+    
+ - `Staff` role:
+    - `username`: Mark
+    - `password`: Start123#
